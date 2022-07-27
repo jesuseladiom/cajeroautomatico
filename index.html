@@ -1,17 +1,52 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesion</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
-    <title>Cajero Automatico</title>
 </head>
 <body>
-    <h1 class="text-center">Hola Mundo</h1>
+    <main>
+        <div class="container">
+            <h1 class="text-center">Inicio de Sesion</h1>
+            <div class="row">
+                <div class="col">
+                    <h1 class="text-center text-white pt-5">Buscador de Transformers</h1>
+                    <div class="card my-5 p-3">
+                        <!-- <form id="form-sesion"> -->
+                            <div class="row">
+                                <div class="col">
+                                    <label for="usuario">Usuario</label>
+                                    <input type="text" class="form-control" id="usuario" 
+                                    placeholder="Usuario" aria-label="First Name">
+                                </div>
+                                <div class="col">
+                                    <label for="pwd">Password</label>
+                                    <input type="password" class="form-control" id="pwd" 
+                                    placeholder="Password" aria-label="First Name">
+                                </div>
 
+                                <div class="col d-flex align-items-end">
+                                    <button type="submit" class="btn btn-success w-100" id="boton">Login</button>
+                                </div>
+                            </div>
+
+                        <!-- </form> -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script src="db.js"></script>
     <script src="app.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
 </body>
 </html>
