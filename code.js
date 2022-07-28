@@ -1,9 +1,15 @@
 const boxResultado= document.querySelector("#resultado");
 const boxMontos= document.querySelector("#montos");
 const boxMensajes= document.querySelector("#mensajes");
-
+const user= document.querySelector("#user");
 
 let saldo= 0;
+
+document.addEventListener('DOMContentLoaded', ()=> {
+    if (obtenerItem('usuario')==null || obtenerItem('id')==null || obtenerItem('saldo')==null)
+        window.location.href = "index.html";
+    user.textContent= obtenerItem('usuario');
+})
 
 function consultar() {
     //alert('consultar')
@@ -24,7 +30,7 @@ function depositar() {
         <div class="col">
             <label for="importe">Importe a Depositar</label>
             <input type="number" class="form-control" id="txtDeposito" 
-            placeholder="Ingresa el monto" aria-label="First Name"
+            placeholder="Importe" aria-label="First Name"
             min="1" max="1000">
         </div>
 
@@ -36,8 +42,6 @@ function depositar() {
     `;
 
     boxResultado.appendChild(mensaje);
-                     
-
 }
 
 function retirar() {
@@ -46,14 +50,14 @@ function retirar() {
     // formulario
     const mensaje= document.createElement('div');
     saldo= obtenerItem('saldo');
-    mensaje.classList.add('bg-secondary','text-white','border-danger','p-4','text-center');
+    mensaje.classList.add('bg-secondary','text-white','border-danger','p-2','text-center');
     mensaje.innerHTML= `
     <div class="row">
         <div class="col">
             <label for="txtRetiro">Importe a Retirar</label>
             <input type="number" class="form-control" id="txtRetiro" 
-            placeholder="Ingresa el monto" aria-label="First Name"
-            min="1" max="1000">
+            placeholder="Importe" aria-label="First Name"
+            min="0" max="1000">
         </div>
 
         <div class="col d-flex align-items-end">
@@ -120,7 +124,7 @@ function btnDeposita()
             //informar en pantalla
             limpiarMontos();
             const mensaje= document.createElement('div');
-            mensaje.classList.add('bg-danger','text-white','border-danger','p-4','text-center');
+            mensaje.classList.add('bg-success','text-white','border-danger','p-4','text-center');
             mensaje.textContent= `El monto ingresado es ${Number(txtDeposito.value)} y el nuevo saldo es ${saldo + Number(txtDeposito.value)}`;
         
             boxMontos.appendChild(mensaje);
@@ -130,29 +134,28 @@ function btnDeposita()
            
     }
 
-    /* if (NaN(txtDeposito.value)) {
-        alert('ingresa numero valido');
-    } */
+    txtDeposito.value='';
+
 }
 
 function btnRetira() 
 {
-    const txtDeposito= document.querySelector("#txtRetiro");
+    const txtRetirar= document.querySelector("#txtRetiro");
     saldo= Number(obtenerItem('saldo'));
-    if (saldo - Number(txtDeposito.value) < 10)
+    if (saldo - Number(txtRetirar.value) < 10)
         mensajeAlerta("Se excede del limite inferior de $10");
     else {
-        if (Number(txtDeposito.value) > 0)
+        if (Number(txtRetirar.value) > 0)
         {
             // actualiza saldo
-            addItem('saldo', saldo - Number(txtDeposito.value));
+            addItem('saldo', saldo - Number(txtRetirar.value));
 
             //informar en pantalla
             limpiarMontos();
 
             const mensaje= document.createElement('div');
-            mensaje.classList.add('bg-danger','text-white','border-danger','p-4','text-center');
-            mensaje.textContent= `El monto ingresado es ${Number(txtDeposito.value)} y el nuevo saldo es ${saldo - Number(txtDeposito.value)}`;
+            mensaje.classList.add('bg-success','text-white','border-danger','p-4','text-center');
+            mensaje.textContent= `El monto ingresado es ${Number(txtRetirar.value)} y el nuevo saldo es ${saldo - Number(txtRetirar.value)}`;
         
             boxMontos.appendChild(mensaje);
         }
@@ -161,9 +164,7 @@ function btnRetira()
            
     }
 
-    /* if (NaN(txtDeposito.value)) {
-        alert('ingresa numero valido');
-    } */
+    txtRetirar.value='';
 }
 
 

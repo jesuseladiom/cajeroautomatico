@@ -8,11 +8,18 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <title>Cajero</title>
 </head>
-<body>
+<body class="bg-info" style="--bs-bg-opacity: .2;" >
 
     <main>
-        <div class="container">
-            <h1 class="text-center">Menu Principal</h1>
+        <div class="container" >
+            <div class="row">
+                <div class="col">
+                    <h1 class="text-center d-flex">Cajero Automatico</h1>
+                </div>
+                <div class="col">
+                    <h6 class="justify-content-end d-flex" id="user"></h6>                
+                </div>
+            </div>
             <!-- menu lateral -->
             <div class="row">
                 <div class="col">
@@ -20,16 +27,16 @@
                         <nav>
                             <ul class="nav justify-content-start d-flex flex-column">
                                 <li class="nav-item">
-                                  <a class="nav-link ms-3 text-black text-black-50" href="#" id="consultar" onclick="consultar()">Consultar Saldo</a> 
+                                  <a class="nav-link text-black text-black-50" href="#" id="consultar" onclick="consultar()">Consultar Saldo</a> 
                                 </li>
                                 <li class="nav-item">
-                                  <a class="nav-link ms-3 text-black text-black-50" href="#" id="ingresar" onclick="depositar()">Ingresar Monto</a>
+                                  <a class="nav-link text-black text-black-50" href="#" id="ingresar" onclick="depositar()">Ingresar Monto</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link ms-3 text-black text-black-50" href="#" id="retirar" onclick="retirar()">Retirar Monto</a>
+                                    <a class="nav-link text-black text-black-50" href="#" id="retirar" onclick="retirar()">Retirar Monto</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link ms-3 text-black text-black-50" href="#" id="salir" onclick="salir()">Salir</a>
+                                    <a class="nav-link text-black text-black-50" href="#" id="salir" onclick="salir()">Salir</a>
                                 </li>
                             </ul>
                         </nav>

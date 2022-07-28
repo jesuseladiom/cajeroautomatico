@@ -17,20 +17,12 @@ const usuarios= [
 ]
 
 //funciones localstorage
-
 function addItem(key, item) {
     if (typeof item== 'string')
         localStorage.setItem(key, item);
     else
         localStorage.setItem(key, JSON.stringify(item));
 }
-
-//recuperar elementos del localStorage
-/* function obtenerItem() {
-    let nombre= localStorage.getItem('nombre');
-    let array= json.parse(localStorage.getItem('array'));
-    let asistente= json.parse(localStorage.getItem('asistentes'));
-} */
 
 function obtenerItem(key) {
     return localStorage.getItem(key);
